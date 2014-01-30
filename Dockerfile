@@ -12,7 +12,8 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 RUN apt-get -y install python-software-properties
 
 # install nginx
-RUN add-apt-repository -y ppa:nginx/stable && \
+RUN echo "deb http://nginx.org/packages/ubuntu/ precise nginx" >> /etc/apt/sources.list && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62 && \
     apt-get update && \
     apt-get -y install nginx
 
