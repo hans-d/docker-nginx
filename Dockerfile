@@ -37,7 +37,3 @@ EXPOSE 80 443
 
 # entrypoint
 ENTRYPOINT ["/docker/scripts/start"]
-
-
-# for backwards compatabile changes:
-RUN echo 'include /data/conf/nginx/*;' >> /etc/nginx/conf.d/docker.conf
