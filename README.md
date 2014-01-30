@@ -1,26 +1,35 @@
 Nginx docker environment
 ========================
 
-- uses the default nginx configuration, and will include everything in ```/data/conf/nginx```
+uses the default nginx configuration, and will include everything in ```/data/nginx```
 
-Versions
---------
+Exposed
+
+Versions/Branches
+-----------------
 (due to current limitations of trusted builds these are seperate docker repos)
 
-- ```hansd/nginx``
+- `master` -> `hansd/nginx`
   - only nginx
-- ```hansd/nginx-php5```
+- `php5` -> `hansd/nginx-php5`
   - nginx with php5
 
 
 Volumes
 -------
 
-- ```/data```: website
-  - ```/data/conf/nginx```: additional configuratioon for nginx
-- ```/var/log```: logging
-  - ```/var/log/nginx```: output of nginx (as per default configuration) 
+- `/data`: website
+  - `/data/nginx`: additional configuratioon for nginx
+- `/var/log`: logging
+  - `/var/log/nginx`: output of nginx (as per default configuration) 
 
+Ports
+-----
+- `80`, `443`: standard http(s) ports
+
+TODO
+----
+- auto reload on config change
 
 Run
 ---
@@ -33,7 +42,7 @@ Example configuration
 
 Can be accessed via ```http://dockerhost:8000```
 
-### ```/path/to/host/data/conf/nginx/example```
+### `/path/to/host/data/conf/nginx/example`
 
 ```
 server {
@@ -60,7 +69,7 @@ server {
 }
 ```
 
-### ```/path/to/host/data/www/example/index.html```
+### `/path/to/host/data/www/example/index.html`
 
 ```
 <html>Hello World!</html>

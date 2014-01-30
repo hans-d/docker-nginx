@@ -1,0 +1,25 @@
+#!/bin/bash
+
+status () {
+    echo "---> ${@}" >&2
+}
+
+status "Checking configuration"
+if [ -d /data/conf/nginx ]; then
+    echo "Move config from /data/conf/nginx to /data/nginx, and restart"
+    exit 1;
+fi
+if [ ! -d /data/nginx ]; then
+    mkdir /data/nginx;
+fi
+if [ ! "$(ls -A /data/nginx)" ]; then
+    echo "Add configuration to /data/nginx, and restart"
+fi
+
+if [ ! -d /var/log/nginx ]; then
+    mkdir /var/log/nginx;
+fi
+
+echo "Starting nginx forced withou daemon"
+nginx -g "daemon off;"
+
