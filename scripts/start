@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/docker/scripts/php-start
+/docker/scripts/nginx-start
