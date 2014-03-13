@@ -1,3 +1,7 @@
 #!/bin/sh
 
+if [ -n "$catch_workers_output" ]; then
+   sed 's/;catch_workers_output/catch_workers_output/' -i 
+fi
+
 php5-fpm -R

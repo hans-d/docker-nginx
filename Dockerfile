@@ -41,4 +41,4 @@ VOLUME /var/log
 EXPOSE 80 443
 
 # entrypoint
-ENTRYPOINT ["/docker/scripts/start"]
+#ENTRYPOINT ["/docker/scripts/start"]

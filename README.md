@@ -11,6 +11,8 @@ Versions/Branches
   - only nginx
 - `php5` -> `hansd/nginx-php5`
   - nginx with php5
+  - options:
+    - use `-e catch_workers_output=1` to increase logging
 
 
 Volumes
@@ -47,7 +49,7 @@ server {
   listen 80 default_server;
   server_name
     localhost
-    example
+    example;
 
   root /data/www/example;
   index index.html;
