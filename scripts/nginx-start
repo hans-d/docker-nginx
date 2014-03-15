@@ -4,6 +4,9 @@ status () {
     echo "---> ${@}" >&2
 }
 
+status "Make sure ownership of data dir is OK"
+chown -R www-data:www-data /data
+
 status "Checking configuration"
 if [ -d /data/conf/nginx ]; then
     echo "Move config from /data/conf/nginx to /data/nginx, and restart"
