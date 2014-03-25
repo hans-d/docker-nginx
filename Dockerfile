@@ -22,7 +22,7 @@ RUN rm -Rf /etc/nginx/sites-enabled/default
 # install php5 with some packages
 RUN add-apt-repository -y ppa:ondrej/php5 && \
     apt-get update && \
-    apt-get -y install php5-fpm php5-cli php5-mysql
+    apt-get -y install php5-fpm php5-cli php5-mysql php5-gd
 
 # add scripts and install dependencies
 RUN mkdir /docker
