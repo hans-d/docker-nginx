@@ -1,4 +1,4 @@
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 MAINTAINER Hans Donner <hans.donner@pobox.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -26,12 +26,7 @@ ADD scripts /docker/scripts
 RUN chmod +x /docker/scripts/*
 
 # extra config on volume
-VOLUME /data
 RUN echo 'include /data/nginx/*;' > /etc/nginx/conf.d/docker.conf
-
-# logging to volume
-RUN rm -Rf /var/log/nginx
-VOLUME /var/log
 
 # expose ports
 EXPOSE 80 443
